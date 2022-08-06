@@ -23,7 +23,7 @@ yum install -y Xvfb
 
 # install libXScrnSaver from binary package
 echo "installing libXScrnSaver"
-rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/libXScrnSaver-1.2.2-2.el6.x86_64.rpm || exitError "error while installing libXScrnSaver"
+rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/libXScrnSaver-1.2.2-2.el6.x86_64.rpm || exitError "error while installing libXScrnSaver"
 
 # install pango, xrandr, xcursor, cairo, cups-libs(libcups)
 echo "installing pango, xrandr, xcursor, cairo, cups-libs"

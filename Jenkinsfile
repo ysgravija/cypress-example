@@ -1,6 +1,5 @@
 pipeline {
     agent none
-
     stages {
         stage('dependencies') {
             steps {
@@ -17,19 +16,21 @@ pipeline {
             parallel {
                 stage('machine 1') {
 		    agent {
-		        label: 'docker'
-                    }
+                    	docker { image 'node:16.13.1-alpine' }
+		    }
                     steps {
+			echo "Running build ${env.BUILD_ID}"
                         sh "npm run cy:ci"
                     }
                 }
 
                 stage('machine 2') {
                     agent {
-		        label: 'docker'
+			docker { image 'node:16.13.1-alpine' }
                     }
 		    steps {
-                        sh "npm run cy:ci"
+                        echo "Running build ${env.BUILD_ID}"
+			sh "npm run cy:ci"
                     }
                 }
             }

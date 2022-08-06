@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('dependencies') {
@@ -16,13 +16,19 @@ pipeline {
 
             parallel {
                 stage('machine 1') {
+		    agent {
+		        label: 'docker'
+                    }
                     steps {
                         sh "npm run cy:ci"
                     }
                 }
 
                 stage('machine 2') {
-                    steps {
+                    agent {
+		        label: 'docker'
+                    }
+		    steps {
                         sh "npm run cy:ci"
                     }
                 }

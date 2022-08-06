@@ -31,8 +31,8 @@ yum install -y pango pango pango-devel libXrandr libXrandr-devel libXcursor libX
 
 # install atk
 echo "installing atk library"
-rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/atk-1.30.0-1.el6.x86_64.rpm || exitError "error while installing atk"
-rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/atk-devel-1.30.0-1.el6.x86_64.rpm || exitError "error while installing atk-devel"
+rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/atk-1.30.0-1.el6.x86_64.rpm || exitError "error while installing atk"
+rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/atk-devel-1.30.0-1.el6.x86_64.rpm || exitError "error while installing atk-devel"
 
 echo "installing gcc compiler"
 yum install -y gcc ||  exitError "error while installing gcc compiler"
@@ -41,9 +41,9 @@ yum install -y gcc ||  exitError "error while installing gcc compiler"
 echo "installing gconf with dependencies"
 
 yum install -y libIDL libIDL-devel || exitError "error while installing libIDL libIDL-devel"
-rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/ORBit2-2.14.17-6.el6_8.x86_64.rpm || exitError "error while installing ORBIT"
+rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/ORBit2-2.14.17-7.el6.x86_64.rpm || exitError "error while installing ORBIT"
 yum install -y gtk-doc indent || exitError "error while installing gtk-doc, indent"
-rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/ORBit2-devel-2.14.17-6.el6_8.x86_64.rpm || exitError "error while installing ORBIT-devel"
+rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/ORBit2-devel-2.14.17-7.el6.x86_64.rpm || exitError "error while installing ORBIT-devel"
 yum install -y libxml2 libxml2-devel dbus dbus-devel dbus-glib dbus-glib-devel intltool || exitError "error while installing libxml, dbus, dbus-glib intltool"
 
 cd /tmp

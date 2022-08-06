@@ -42,7 +42,7 @@ echo "installing gconf with dependencies"
 
 yum install -y libIDL libIDL-devel || exitError "error while installing libIDL libIDL-devel"
 rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/ORBit2-2.14.17-7.el6.x86_64.rpm || exitError "error while installing ORBIT"
-yum install -y gtk-doc indent || exitError "error while installing gtk-doc, indent"
+yum install -y gtk-doc indent automake || exitError "error while installing gtk-doc, indent, automake"
 rpm -ivh https://vault.centos.org/6.10/os/x86_64/Packages/ORBit2-devel-2.14.17-7.el6.x86_64.rpm || exitError "error while installing ORBIT-devel"
 yum install -y libxml2 libxml2-devel dbus dbus-devel dbus-glib dbus-glib-devel intltool || exitError "error while installing libxml, dbus, dbus-glib intltool"
 
@@ -56,6 +56,9 @@ make install
 # first install gdk
 echo "installing gdk-pixbuf with dependencies"
 yum install -y libtiff-devel libjpeg-devel || exitError "error while installing libtiff-devel libjpeg-devel"
+
+# chrome dependencies
+yum install -y atk java-atk-wrapper at-spi2-atk gtk3 libXt
 
 cd /tmp
 wget https://download.gnome.org/sources/gdk-pixbuf/2.24/gdk-pixbuf-2.24.0.tar.bz2
